@@ -1,0 +1,15 @@
+version: "3.8"
+name: Chess
+services:
+  nodeapp:
+    image: node:slim
+    container_name: chessApp
+    env_file:
+      - .env
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo-express:latest
+    container_name: mongoDB
+    env_file:
+      - .env
