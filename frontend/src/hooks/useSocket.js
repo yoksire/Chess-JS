@@ -1,19 +1,20 @@
 import { useEffect, useState } from "react"
-const WS_URL = "ws://localhost:8000"
+const WS_URL = "ws://localhost:8080"
 
 export const useSocket=()=>{
-    const [socket,setSocket] = useState<WebSocket | null>(null)
+    const [socket,setSocket] = useState(null)
     useEffect(()=>{
         const ws = new WebSocket(WS_URL)
         ws.onopen=()=>{
             console.log("Connected")
+            setSocket(ws)
         }
         ws.onclose=()=>{
             console.log("Disconnected")
+            setSocket(null)
         }
-        setSocket(ws)
-        return ()=>{
-            ws.close()
-        }
+        
+        
     },[])
+    return socket
 }
