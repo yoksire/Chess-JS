@@ -5,7 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: { colors: { 'slate-creme': '#FFF0D1' } },
   },
   plugins: [],
 }
